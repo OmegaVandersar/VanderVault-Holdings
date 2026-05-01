@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#2b2108"/>
+      <stop offset="45%" stop-color="#090704"/>
+      <stop offset="100%" stop-color="#020202"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="120" y1="90" x2="760" y2="560">
+      <stop stop-color="#fff4bd"/>
+      <stop offset="0.35" stop-color="#f5c542"/>
+      <stop offset="0.7" stop-color="#c99419"/>
+      <stop offset="1" stop-color="#7a5308"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#f5c542" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="650" fill="url(#bg)"/>
+
+  <circle cx="450" cy="310" r="205" fill="#050505" stroke="#2b2414" stroke-width="4"/>
+  <circle cx="450" cy="310" r="176" fill="url(#gold)" filter="url(#shadow)"/>
+  <circle cx="450" cy="310" r="139" fill="#11100b" opacity="0.18"/>
+
+  <path d="M410 170h45v55h36v-55h45v58c55 12 91 45 91 93 0 35-18 62-51 77 42 14 66 46 66 89 0 59-45 97-118 104v59h-45v-57h-36v57h-45v-57h-72v-60h42V288h-42v-60h84v-58Zm44 118v83h58c35 0 55-16 55-42 0-25-20-41-55-41h-58Zm0 137v91h66c39 0 61-17 61-45 0-29-22-46-61-46h-66Z" fill="#050505"/>
+
+  <circle cx="450" cy="310" r="214" fill="none" stroke="#fff4bd" stroke-opacity="0.5" stroke-width="2"/>
+  <circle cx="450" cy="310" r="230" fill="none" stroke="#f5c542" stroke-opacity="0.18" stroke-width="16"/>
+
+  <path d="M95 510c95-60 145-52 225-34 118 27 203 96 337 44 71-27 108-67 148-75" fill="none" stroke="#f5c542" stroke-width="5" stroke-linecap="round" opacity="0.55"/>
+  <path d="M110 545c122-53 222-40 310-8 97 35 170 44 270-10 50-27 82-58 112-76" fill="none" stroke="#fff4bd" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+
+  <text x="450" y="590" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" fill="#fff4bd">
+    Bitcoin-Backed Digital Asset Access
+  </text>
+  <text x="450" y="620" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" fill="#a99b75">
+    Premium custody · global investors · transparent portfolio growth
+  </text>
+</svg>
