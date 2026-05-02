@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#050505"/>
+      <stop offset="0.5" stop-color="#11100b"/>
+      <stop offset="1" stop-color="#201706"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop stop-color="#fff4bd"/>
+      <stop offset="0.45" stop-color="#f5c542"/>
+      <stop offset="1" stop-color="#a87509"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="650" fill="url(#bg)"/>
+
+  <rect x="105" y="95" width="690" height="260" rx="22" fill="#0c0c0a" stroke="#2b2414"/>
+  <path d="M150 300l85-60 75 36 80-94 70 72 100-120 120 90" stroke="#f5c542" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+  <circle cx="450" cy="228" r="108" fill="#d9b096"/>
+  <path d="M342 155c75-70 180-45 210 45-65-41-142-44-210-10z" fill="#7a2d22"/>
+  <circle cx="410" cy="228" r="8" fill="#111"/>
+  <circle cx="490" cy="228" r="8" fill="#111"/>
+
+  <rect x="385" y="213" width="45" height="30" rx="10" fill="none" stroke="#111" stroke-width="5"/>
+  <rect x="470" y="213" width="45" height="30" rx="10" fill="none" stroke="#111" stroke-width="5"/>
+
+  <path d="M412 292c30 18 56 18 86 0" stroke="#8a5144" stroke-width="9" fill="none" stroke-linecap="round"/>
+
+  <path d="M240 650c42-168 124-252 210-252s168 84 210 252z" fill="#111827"/>
+  <path d="M365 424l85 116 85-116" fill="#ffffff"/>
+  <path d="M410 545l40-85 40 85" fill="url(#gold)"/>
+
+  <rect x="250" y="520" width="400" height="88" rx="18" fill="#080807" stroke="#2b2414"/>
+
+  <text x="450" y="558" text-anchor="middle" font-family="Inter, Arial" font-size="30" font-weight="800" fill="#fff4bd">
+    Eleanor Whitfield
+  </text>
+
+  <text x="450" y="590" text-anchor="middle" font-family="Inter, Arial" font-size="18" fill="#f5c542">
+    Head of Risk & Treasury
+  </text>
+
+  <text x="450" y="616" text-anchor="middle" font-family="Inter, Arial" font-size="13" fill="#9c8c64">
+    British · Risk Controls · Treasury Oversight
+  </text>
+</svg>
