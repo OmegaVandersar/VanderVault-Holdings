@@ -9,146 +9,186 @@
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: #e2e8f0; overflow-x: hidden; }
         .gold-grad { background: linear-gradient(135deg, #fbbf24 0%, #b45309 100%); }
         .gold-text { background: linear-gradient(to right, #fef3c7, #fbbf24, #b45309); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(251, 191, 36, 0.1); }
-        @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .animate-slide-up { animation: slideUp 0.5s ease-out; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(251, 191, 36, 0.1); }
+        .plan-card:hover { border-color: #fbbf24; transform: translateY(-10px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .animate-up { animation: slideUp 0.6s ease-out forwards; }
     </style>
 </head>
 <body>
-    <!-- TRANSLATOR -->
-    <div id="google_translate_element" style="position:fixed; bottom:20px; right:20px; z-index:100; opacity:0.8;"></div>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script>
+    <!-- GLOBAL TRANSLATOR -->
+    <div id="google_translate_element" style="position:fixed; bottom:20px; right:20px; z-index:100;"></div>
+    <script type="text/javascript">function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); }</script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- NAVIGATION -->
-    <nav class="fixed w-full z-50 bg-black/90 border-b border-amber-500/20 py-4 px-6">
+    <!-- ELITE NAVIGATION -->
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-xl border-b border-amber-500/10 py-4 px-6">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <svg class="w-10 h-10 text-amber-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                <div class="flex flex-col"><span class="text-xl font-black text-white">VANGUARD</span><span class="text-[9px] font-black text-amber-500 uppercase tracking-widest">Crypto Capital</span></div>
+                <img src="public/images/security.svg" alt="SEC" class="w-10 h-10">
+                <div class="flex flex-col"><span class="text-xl font-black text-white tracking-tighter">VANGUARD</span><span class="text-[9px] font-black text-amber-500 uppercase tracking-widest">Crypto Capital</span></div>
             </div>
-            <button class="px-6 py-2.5 gold-grad text-black text-[10px] font-black rounded-lg uppercase tracking-widest">Connect Wallet</button>
+            <div class="hidden lg:flex space-x-8 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+                <a href="#plans" class="hover:text-amber-500">Portfolios</a>
+                <a href="#compliance" class="hover:text-amber-500">Compliance</a>
+                <a href="#kyc" class="hover:text-amber-500">KYC/2FA</a>
+            </div>
+            <button class="px-6 py-2.5 gold-grad text-black text-[10px] font-black rounded-lg uppercase tracking-widest hover:shadow-[0_0_20px_rgba(251,191,36,0.3)]">Connect Wallet</button>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative pt-48 pb-32 px-6">
+    <header class="relative pt-56 pb-32 px-6">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div class="space-y-8">
-                <div class="inline-block px-4 py-1 rounded-full border border-amber-500/20 text-amber-500 text-[10px] font-black uppercase">Institutional Grade</div>
-                <h1 class="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter">ELITE <span class="gold-text">WEALTH</span> ENGINE.</h1>
-                <p class="text-lg text-slate-400 max-w-lg leading-relaxed">Dual-Headquartered in Frankfurt & London. The global standard for quantitative crypto management.</p>
-                <div class="flex gap-4"><button class="px-10 py-5 gold-grad text-black font-black rounded-2xl uppercase text-xs">Start Investing</button></div>
+            <div class="space-y-10 animate-up">
+                <div class="inline-flex items-center space-x-2 px-4 py-1 rounded-full glass border-amber-500/20 text-amber-500 text-[10px] font-black uppercase tracking-widest">
+                    Institutional Terminal v4.0
+                </div>
+                <h1 class="text-7xl lg:text-9xl font-black text-white leading-none tracking-tighter">ELITE <br/><span class="gold-text">WEALTH.</span></h1>
+                <p class="text-xl text-slate-400 max-w-lg leading-relaxed font-medium">Merging German regulatory precision with global algorithmic dominance. Start your journey with €500.</p>
+                <div class="flex gap-4">
+                    <button class="px-12 py-5 gold-grad text-black font-black rounded-2xl uppercase text-xs tracking-widest shadow-2xl shadow-amber-500/20">Open Portfolio</button>
+                </div>
             </div>
-            <div class="flex justify-center">
-                <!-- HERO.SVG EQUIVALENT -->
-                <svg class="w-80 h-80 text-amber-500 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="12" r="3"/><path d="M12 9v6M9 12h6"/></svg>
+            <div class="flex justify-center relative">
+                <img src="public/images/bitcoin-premium.svg" alt="BTC" class="w-80 h-80 animate-pulse">
+                <div class="absolute inset-0 bg-amber-500/10 rounded-full blur-[120px] -z-10"></div>
             </div>
         </div>
     </header>
 
-    <!-- TEAM ROLES SECTION -->
-    <section class="py-24 px-6 max-w-7xl mx-auto bg-white/5 rounded-[3rem] border border-white/5">
+    <!-- INVESTMENT PLANS (THE TIERS) -->
+    <section id="plans" class="py-32 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-20">
-            <h2 class="text-xs font-black text-amber-500 uppercase tracking-[0.5em] mb-4">Board of Directors</h2>
-            <p class="text-4xl font-black text-white tracking-tighter">Executive Leadership</p>
+            <h2 class="text-xs font-black text-amber-500 uppercase tracking-[0.5em] mb-4">Capital Allocation</h2>
+            <p class="text-5xl font-black text-white tracking-tighter">Investment Strategies</p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- ROLES: CEO, CTO, CIO, CFO, CCO, RISK, SECURITY, OFFICE -->
-            <div class="text-center p-6 glass rounded-3xl">
-                <div class="w-16 h-16 gold-grad rounded-2xl flex items-center justify-center mx-auto mb-4 text-black font-black">CEO</div>
-                <h4 class="font-bold text-white">Dr. Klaus Weber</h4>
-                <p class="text-[10px] text-amber-500 font-black uppercase mb-2">Executive Lead (DE)</p>
-                <p class="text-xs text-slate-500">20+ Years Institutional Finance</p>
+            <div class="glass p-10 rounded-[3rem] plan-card border-white/5 flex flex-col">
+                <h3 class="text-amber-500 font-black text-xs uppercase tracking-widest mb-6">Starter Strategy</h3>
+                <div class="text-4xl font-black text-white mb-2">0.8% <span class="text-sm text-slate-500">Daily</span></div>
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-8">Min: €500 | Max: €4,999</p>
+                <ul class="text-xs space-y-4 mb-10 flex-1 text-slate-400">
+                    <li class="flex items-center">✓ 20 Business Days</li>
+                    <li class="flex items-center">✓ Capital Back Guarantee</li>
+                    <li class="flex items-center">✓ Standard Support</li>
+                </ul>
+                <button class="w-full py-4 gold-grad text-black rounded-2xl font-black text-[10px] uppercase">Select Tier</button>
             </div>
-            <div class="text-center p-6 glass rounded-3xl">
-                <div class="w-16 h-16 gold-grad rounded-2xl flex items-center justify-center mx-auto mb-4 text-black font-black">CTO</div>
-                <h4 class="font-bold text-white">Sarah Chen</h4>
-                <p class="text-[10px] text-amber-500 font-black uppercase mb-2">Tech Architecture</p>
-                <p class="text-xs text-slate-500">Former Lead @ Binance Tech</p>
+            <div class="glass p-10 rounded-[3rem] plan-card border-amber-500/30 bg-amber-500/5 flex flex-col scale-105">
+                <h3 class="text-amber-500 font-black text-xs uppercase tracking-widest mb-6">Professional Tier</h3>
+                <div class="text-4xl font-black text-white mb-2">1.5% <span class="text-sm text-slate-500">Daily</span></div>
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-8">Min: €5,000 | Max: €24,999</p>
+                <ul class="text-xs space-y-4 mb-10 flex-1 text-slate-400">
+                    <li class="flex items-center text-white">✓ 30 Business Days</li>
+                    <li class="flex items-center text-white">✓ Dedicated Portfolio Manager</li>
+                    <li class="flex items-center text-white">✓ Weekly Performance Audit</li>
+                </ul>
+                <button class="w-full py-4 gold-grad text-black rounded-2xl font-black text-[10px] uppercase shadow-lg shadow-amber-500/20">Select Tier</button>
             </div>
-            <div class="text-center p-6 glass rounded-3xl">
-                <div class="w-16 h-16 gold-grad rounded-2xl flex items-center justify-center mx-auto mb-4 text-black font-black">CFO</div>
-                <h4 class="font-bold text-white">James Sterling</h4>
-                <p class="text-[10px] text-amber-500 font-black uppercase mb-2">Financial Officer</p>
-                <p class="text-xs text-slate-500">Capital Flow Specialist</p>
+            <div class="glass p-10 rounded-[3rem] plan-card border-white/5 flex flex-col">
+                <h3 class="text-amber-500 font-black text-xs uppercase tracking-widest mb-6">Alpha Core</h3>
+                <div class="text-4xl font-black text-white mb-2">2.2% <span class="text-sm text-slate-500">Daily</span></div>
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-8">Min: €25,000 | Max: €99,999</p>
+                <ul class="text-xs space-y-4 mb-10 flex-1 text-slate-400">
+                    <li class="flex items-center">✓ 45 Business Days</li>
+                    <li class="flex items-center">✓ VIP Concierge Access</li>
+                    <li class="flex items-center">✓ Tax Optimization Hub</li>
+                </ul>
+                <button class="w-full py-4 gold-grad text-black rounded-2xl font-black text-[10px] uppercase">Select Tier</button>
             </div>
-            <div class="text-center p-6 glass rounded-3xl">
-                <div class="w-16 h-16 gold-grad rounded-2xl flex items-center justify-center mx-auto mb-4 text-black font-black">CIO</div>
-                <h4 class="font-bold text-white">Emma Thompson</h4>
-                <p class="text-[10px] text-amber-500 font-black uppercase mb-2">Investment Officer</p>
-                <p class="text-xs text-slate-500">Ex-BlackRock Portfolio Lead</p>
-            </div>
-            <!-- Additional Roles -->
-            <div class="text-center p-6 glass rounded-3xl">
-                <div class="w-16 h-16 gold-grad rounded-2xl flex items-center justify-center mx-auto mb-4 text-black font-black">CCO</div>
-                <h4 class="font-bold text-white">M. Rodriguez</h4>
-                <p class="text-[10px] text-amber-500 font-black uppercase mb-2">Compliance</p>
-                <p class="text-xs text-slate-500">Regulatory Oversight (UK)</p>
-            </div>
-            <div class="text-center p-6 glass rounded-3xl">
-                <div class="w-16 h-16 gold-grad rounded-2xl flex items-center justify-center mx-auto mb-4 text-black font-black">RISK</div>
-                <h4 class="font-bold text-white">Lars Jensen</h4>
-                <p class="text-[10px] text-amber-500 font-black uppercase mb-2">Risk Mitigation</p>
-                <p class="text-xs text-slate-500">Capital Protection Systems</p>
-            </div>
-            <div class="text-center p-6 glass rounded-3xl">
-                <div class="w-16 h-16 gold-grad rounded-2xl flex items-center justify-center mx-auto mb-4 text-black font-black">SEC</div>
-                <h4 class="font-bold text-white">Cyber Vault</h4>
-                <p class="text-[10px] text-amber-500 font-black uppercase mb-2">Assets Security</p>
-                <p class="text-xs text-slate-500">Cold-Storage Protocol</p>
-            </div>
-            <div class="text-center p-6 glass rounded-3xl">
-                <div class="w-16 h-16 gold-grad rounded-2xl flex items-center justify-center mx-auto mb-4 text-black font-black">OFF</div>
-                <h4 class="font-bold text-white">Vanguard HQ</h4>
-                <p class="text-[10px] text-amber-500 font-black uppercase mb-2">Frankfurt Hub</p>
-                <p class="text-xs text-slate-500">Global Operations Center</p>
+            <div class="glass p-10 rounded-[3rem] plan-card border-white/5 flex flex-col">
+                <h3 class="text-amber-500 font-black text-xs uppercase tracking-widest mb-6">Institutional</h3>
+                <div class="text-4xl font-black text-white mb-2">3.0% <span class="text-sm text-slate-500">Daily</span></div>
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-8">Min: €100,000 | Max: Limitless</p>
+                <ul class="text-xs space-y-4 mb-10 flex-1 text-slate-400">
+                    <li class="flex items-center">✓ 60 Business Days</li>
+                    <li class="flex items-center">✓ Direct Trading Desk</li>
+                    <li class="flex items-center">✓ Corporate Governance</li>
+                </ul>
+                <button class="w-full py-4 gold-grad text-black rounded-2xl font-black text-[10px] uppercase">Select Tier</button>
             </div>
         </div>
     </section>
 
-    <!-- LIVE NOTIFICATIONS AREA -->
-    <div id="notif-area" class="fixed bottom-10 left-6 z-50 pointer-events-none"></div>
-
-    <!-- FOOTER -->
-    <footer class="py-20 px-6 border-t border-white/5">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 text-center md:text-left">
+    <!-- KYC & SECURITY SECTION -->
+    <section id="kyc" class="py-32 bg-white/5 border-y border-white/5 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             <div>
-                <p class="text-white font-black mb-4 uppercase tracking-widest">Vanguard Capital</p>
-                <p class="text-slate-500 text-xs leading-relaxed">Headquarters in Frankfurt and London. Regulated institutional terminal. supportvanguardcrypto.capital@gmail.com</p>
+                <h2 class="text-xs font-black text-amber-500 uppercase tracking-[0.5em] mb-4">Security Protocol</h2>
+                <p class="text-5xl font-black text-white tracking-tighter mb-8">Bank-Grade Protection.</p>
+                <p class="text-slate-400 mb-10 leading-relaxed">To ensure global compliance with BaFin (Germany) and FCA (UK) regulations, all Vanguard accounts require mandatory KYC Tier-3 verification and 2FA encryption.</p>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4"><img src="public/images/security.svg" class="w-12 h-12 p-3 glass rounded-xl"><div><h4 class="font-bold text-white">Advanced 2FA</h4><p class="text-xs text-slate-500">Military-grade SMS & Google Authentication.</p></div></div>
+                    <div class="flex items-center space-x-4"><img src="public/images/certificate.svg" class="w-12 h-12 p-3 glass rounded-xl"><div><h4 class="font-bold text-white">KYC Verification</h4><p class="text-xs text-slate-500">Instant identity processing in 190+ countries.</p></div></div>
+                </div>
             </div>
-            <div class="text-xs text-slate-500">
-                <p>DE: Mainzer Landstraße 46, Frankfurt</p>
-                <p>UK: 1 Canada Square, London</p>
+            <div class="glass p-10 rounded-[3rem] border-amber-500/20">
+                <h3 class="text-2xl font-black text-white mb-6">Create Elite Account</h3>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Full Name" class="w-full p-4 bg-black border border-white/10 rounded-xl outline-none focus:border-amber-500">
+                    <input type="email" placeholder="Corporate Email" class="w-full p-4 bg-black border border-white/10 rounded-xl outline-none focus:border-amber-500">
+                    <input type="text" placeholder="Phone Number (+)" class="w-full p-4 bg-black border border-white/10 rounded-xl outline-none focus:border-amber-500">
+                    <select class="w-full p-4 bg-black border border-white/10 rounded-xl text-slate-500 outline-none focus:border-amber-500"><option>Select Country</option><option>Switzerland</option><option>Germany</option><option>USA</option></select>
+                    <div class="p-4 bg-amber-500/10 border border-amber-500/20 rounded-xl text-[10px] text-amber-500 font-bold uppercase tracking-widest text-center">Mandatory KYC & 2FA Enabled</div>
+                    <button class="w-full py-5 gold-grad text-black font-black rounded-xl uppercase tracking-widest">Initialize Terminal</button>
+                </form>
             </div>
-            <div class="text-xs text-amber-500 font-black uppercase">Registered 2017 | BaFin & FCA Compliant</div>
         </div>
-    </footer>
+    </section>
+
+    <!-- LIVE GLOBAL ACTIVITY -->
+    <div id="live-terminal" class="fixed bottom-10 left-6 z-50 pointer-events-none"></div>
+
+    <!-- FOOTER (GLOBAL COMPLIANCE) -->
+    <footer id="compliance" class="py-32 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-20">
+            <div class="space-y-6">
+                <div class="flex items-center space-x-3">
+                    <img src="public/images/security.svg" class="w-10 h-10">
+                    <span class="text-xl font-black text-white">VANGUARD</span>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed">Registered: Frankfurt Handelsregister HRB 109284. Established September 14, 2017. Licensed for global asset management.</p>
+                <div class="p-4 glass rounded-2xl border-amber-500/20 text-[10px] text-amber-500 font-bold uppercase">supportvanguardcrypto.capital@gmail.com</div>
+            </div>
+            <div>
+                <h4 class="font-black text-white uppercase text-xs tracking-widest mb-8">Executive Hubs</h4>
+                <div class="space-y-6 text-sm text-slate-500">
+                    <div class="flex items-center space-x-4"><img src="public/images/office.svg" class="w-10 h-10"><div><p class="text-white font-bold">DE HQ:</p><p>Mainzer Landstraße 46, Frankfurt</p></div></div>
+                    <div class="flex items-center space-x-4"><img src="public/images/office.svg" class="w-10 h-10"><div><p class="text-white font-bold">UK HQ:</p><p>1 Canada Square, London</p></div></div>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-black text-white uppercase text-xs tracking-widest mb-8">Official Status</h4>
+                <img src="public/images/certificate.svg" class="w-48 p-4 glass rounded-3xl mb-4 grayscale hover:grayscale-0 transition-all">
+                <p class="text-[10px] text-slate-600 font-bold uppercase tracking-widest">Licensed BaFin & FCA Compliant Terminal</p>
+            </div>
+        </div>
+    </section>
 
     <script>
-        const users = [
-            { n: 'Richard', f: '🇨🇭', a: '$8,700', t: 'Deposit' },
-            { n: 'Anke', f: '🇩🇪', a: '€7,000', t: 'Withdrawal' },
-            { n: 'Christopher', f: '🇺🇸', a: '$25,000', t: 'Deposit' },
-            { n: 'Sophie', f: '🇫🇷', a: '€4,200', t: 'Deposit' }
+        const feeds = [
+            {n:'Richard', c:'CH', f:'🇨🇭', a:'$8,700', t:'Deposit'},
+            {n:'Anke', c:'DE', f:'🇩🇪', a:'€7,000', t:'Withdrawal'},
+            {n:'Christopher', c:'US', f:'🇺🇸', a:'$25,000', t:'Deposit'},
+            {n:'Sven', c:'DE', f:'🇩🇪', a:'€12,500', t:'Deposit'}
         ];
-        function spawn() {
-            const u = users[Math.floor(Math.random() * users.length)];
-            const area = document.getElementById('notif-area');
+        function spawnNotif() {
+            const u = feeds[Math.floor(Math.random() * feeds.length)];
             const div = document.createElement('div');
-            div.className = "glass p-4 rounded-2xl mb-4 flex items-center space-x-4 w-72 animate-slide-up border-amber-500/30";
-            div.innerHTML = `<div class="w-10 h-10 rounded-full gold-grad flex items-center justify-center font-black text-black text-xs">${u.n[0]}</div>
+            div.className = "glass p-5 rounded-[2rem] mb-4 flex items-center space-x-5 w-80 animate-slide-up border-amber-500/30 shadow-2xl";
+            div.innerHTML = `
+                <div class="w-12 h-12 rounded-full gold-grad flex items-center justify-center font-black text-black text-sm">${u.n[0]}</div>
                 <div class="flex-1">
-                    <div class="text-[10px] font-black text-white uppercase flex justify-between">${u.n} <span>${u.f}</span></div>
-                    <div class="text-[10px] font-bold ${u.t==='Deposit'?'text-green-400':'text-amber-400'} uppercase">${u.t} of ${u.a}</div>
-                </div>`;
-            area.innerHTML = ''; area.appendChild(div);
+                    <div class="text-[10px] font-black text-white uppercase flex justify-between tracking-widest">${u.n} <span>${u.f}</span></div>
+                    <div class="text-[11px] font-bold ${u.t==='Deposit'?'text-green-500':'text-amber-500'} uppercase mt-1">${u.t} of ${u.a}</div>
+                    <div class="text-[8px] text-slate-500 font-bold uppercase tracking-widest mt-0.5">Verified Transaction</div>
+                </div>
+            `;
+            document.getElementById('live-terminal').innerHTML = '';
+            document.getElementById('live-terminal').appendChild(div);
         }
-        setInterval(spawn, 8000); spawn();
+        setInterval(spawnNotif, 8000); spawnNotif();
     </script>
 </body>
-  </html>
+                        </html>
