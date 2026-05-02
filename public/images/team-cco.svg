@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#050505"/>
+      <stop offset="0.5" stop-color="#11100b"/>
+      <stop offset="1" stop-color="#201706"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop stop-color="#fff4bd"/>
+      <stop offset="0.45" stop-color="#f5c542"/>
+      <stop offset="1" stop-color="#a87509"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="650" fill="url(#bg)"/>
+  <circle cx="735" cy="105" r="180" fill="#f5c542" opacity="0.10"/>
+
+  <rect x="615" y="90" width="150" height="210" rx="14" fill="#0c0c0a" stroke="#2b2414"/>
+  <path d="M645 150h90M645 185h70M645 220h90" stroke="#f5c542" stroke-width="6"/>
+  <circle cx="690" cy="260" r="22" fill="url(#gold)"/>
+
+  <circle cx="450" cy="228" r="108" fill="#d9b08c"/>
+  <path d="M342 155c76-84 193-42 210 50-54-40-140-48-210-14z" fill="#5a3424"/>
+  <circle cx="410" cy="228" r="8" fill="#111"/>
+  <circle cx="490" cy="228" r="8" fill="#111"/>
+  <path d="M412 292c30 18 56 18 86 0" stroke="#8a5144" stroke-width="9" fill="none" stroke-linecap="round"/>
+
+  <path d="M240 650c42-168 124-252 210-252s168 84 210 252z" fill="#ebe7dc"/>
+  <path d="M365 424l85 116 85-116" fill="#0b0b0b"/>
+  <path d="M410 545l40-85 40 85" fill="url(#gold)"/>
+
+  <rect x="250" y="520" width="400" height="88" rx="18" fill="#080807" stroke="#2b2414"/>
+
+  <text x="450" y="558" text-anchor="middle" font-family="Inter, Arial" font-size="30" font-weight="800" fill="#fff4bd">
+    Sophie Renaud
+  </text>
+
+  <text x="450" y="590" text-anchor="middle" font-family="Inter, Arial" font-size="18" fill="#f5c542">
+    Chief Compliance Officer
+  </text>
+
+  <text x="450" y="616" text-anchor="middle" font-family="Inter, Arial" font-size="13" fill="#9c8c64">
+    French · MiCA · AML Governance
+  </text>
+</svg>
