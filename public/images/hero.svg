@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#050505"/>
+      <stop offset="0.55" stop-color="#11100b"/>
+      <stop offset="1" stop-color="#201706"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop stop-color="#fff4bd"/>
+      <stop offset="0.45" stop-color="#f5c542"/>
+      <stop offset="1" stop-color="#a87509"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <circle cx="1240" cy="170" r="300" fill="#f5c542" opacity="0.12"/>
+  <circle cx="410" cy="260" r="260" fill="#fff4bd" opacity="0.06"/>
+
+  <path d="M0 610c230-160 390-70 570-140 210-82 320-260 570-210 180 36 300 160 460 80v560H0Z" fill="#0f0b06"/>
+  <path d="M0 710c270-110 420-80 640-120 260-48 420-120 690-68 120 23 200 52 270 42v336H0Z" fill="#050505"/>
+
+  <g fill="#11100b" stroke="#2b2414">
+    <rect x="120" y="380" width="120" height="280"/>
+    <rect x="270" y="330" width="150" height="330"/>
+    <rect x="455" y="430" width="110" height="230"/>
+    <rect x="1180" y="370" width="150" height="290"/>
+    <rect x="1360" y="310" width="120" height="350"/>
+  </g>
+
+  <path d="M230 510h180l85-90 120 130 90-75 95 55h240" stroke="url(#gold)" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <circle cx="497" cy="421" r="7" fill="#f5c542"/>
+  <circle cx="615" cy="551" r="7" fill="#f5c542"/>
+  <circle cx="705" cy="476" r="7" fill="#f5c542"/>
+  <circle cx="800" cy="530" r="7" fill="#f5c542"/>
+
+  <circle cx="1120" cy="240" r="100" fill="url(#gold)" opacity="0.9"/>
+
+  <path d="M1086 175h31v39h24v-39h31v41c39 8 64 32 64 66 0 25-13 44-36 55 30 10 47 33 47 64 0 42-32 69-83 74v42h-31v-41h-24v41h-31v-41h-51v-43h30V250h-30v-43h59v-32Zm31 84v59h41c25 0 39-11 39-30s-14-29-39-29h-41Zm0 97v65h47c28 0 43-12 43-32s-15-33-43-33h-47Z" fill="#050505"/>
+
+  <text x="100" y="150" font-family="Inter,Arial" font-size="58" font-weight="800" fill="#fff4bd">
+    Global crypto investing
+  </text>
+
+  <text x="100" y="210" font-family="Inter,Arial" font-size="27" fill="#d7c489">
+    London headquarters · Frankfurt EU regulatory office
+  </text>
+
+  <text x="100" y="255" font-family="Inter,Arial" font-size="20" fill="#9c8c64">
+    KYC · 2FA · Wallet screening · Transparent investment plans
+  </text>
+</svg>
