@@ -1,0 +1,90 @@
+export const TEAM = [
+  {
+    name: "Dr. Maximilian Hoffmann",
+    role: "Chief Executive Officer",
+    nationality: "🇩🇪 German",
+    based: "London / Frankfurt",
+    image: "/images/team-ceo.svg",
+    bio: "Former Global Head of Digital Assets at Deutsche Bank. PhD in Financial Engineering from TU München. Over 22 years building institutional crypto, treasury and structured-product desks across Frankfurt and London. Recognised by Handelsblatt as one of the Top 50 Finance Innovators.",
+    linkedIn: "#",
+    quote: "Global investors deserve a digital asset platform built with the discipline of private banking and the transparency of modern blockchain infrastructure.",
+  },
+  {
+    name: "Friedrich Wagner",
+    role: "Chief Investment Officer",
+    nationality: "🇩🇪 German",
+    based: "Frankfurt",
+    image: "/images/team-cio.svg",
+    bio: "Former Goldman Sachs FICC strategist and digital asset market-structure specialist. Leads quantitative allocation, treasury strategy, liquidity management and plan performance modelling.",
+    linkedIn: "#",
+  },
+  {
+    name: "Dr. Annika Brandt",
+    role: "Chief Financial Officer",
+    nationality: "🇩🇪 German",
+    based: "London / Munich",
+    image: "/images/team-cfo.svg",
+    bio: "German Wirtschaftsprüfer-trained financial executive with experience in fintech treasury, proof-of-reserves reporting, internal controls and institutional financial operations.",
+    linkedIn: "#",
+  },
+  {
+    name: "Sophie Renaud",
+    role: "Chief Compliance Officer",
+    nationality: "🇫🇷 French",
+    based: "Paris / Frankfurt",
+    image: "/images/team-cco.svg",
+    bio: "Former regulatory policy advisor with expertise in MiCA, AMLD5, sanctions screening, KYC governance and digital asset compliance procedures for European investor platforms.",
+    linkedIn: "#",
+  },
+  {
+    name: "Jonas Lindqvist",
+    role: "Chief Technology Officer",
+    nationality: "🇸🇪 Swedish",
+    based: "Stockholm / London",
+    image: "/images/team-cto.svg",
+    bio: "Infrastructure and custody systems architect. Oversees wallet-connect systems, platform security, investor dashboard architecture, 2FA, PWA infrastructure and multi-signature custody workflows.",
+    linkedIn: "#",
+  },
+  {
+    name: "Eleanor Whitfield",
+    role: "Head of Risk & Treasury",
+    nationality: "🇬🇧 British",
+    based: "London",
+    image: "/images/team-risk.svg",
+    bio: "Former treasury risk specialist with deep experience in Value-at-Risk modelling, liquidity monitoring, counterparty review, stress testing and digital asset treasury oversight.",
+    linkedIn: "#",
+  },
+] as const;
+
+export const REASONS = [
+  {
+    icon: "ShieldCheck",
+    title: "Global headquarters with EU regulatory presence",
+    desc: "NordVault Global Capital is positioned with a London headquarters and a Frankfurt EU regulatory office, giving investors a serious global finance profile and European compliance credibility.",
+  },
+  {
+    icon: "Lock",
+    title: "Account security before capital movement",
+    desc: "Email verification, phone collection, KYC review, 2FA setup, wallet screening and withdrawal approvals are built into the investor journey before funds are moved.",
+  },
+  {
+    icon: "Trophy",
+    title: "Transparent investment plan structure",
+    desc: "Every plan clearly displays minimum deposit, maximum deposit, target daily yield, duration, referral commission and risk disclosure before an investor signs up.",
+  },
+  {
+    icon: "TrendingUp",
+    title: "Professional dashboard analytics",
+    desc: "Investors see portfolio growth, deposits, profits, asset allocation, plan performance, live balance projections and downloadable PDF statements.",
+  },
+  {
+    icon: "Users",
+    title: "Global investor accessibility",
+    desc: "The platform supports multiple countries, multiple languages, EUR/USD/GBP display, live market charts, mobile install support and direct WhatsApp investor contact.",
+  },
+  {
+    icon: "Zap",
+    title: "Active platform activity and admin control",
+    desc: "The website includes global activity display, withdrawal request workflows, admin approval tools, visitor analytics, audit logs and operational status reporting.",
+  },
+] as const;
