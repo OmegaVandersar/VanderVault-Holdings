@@ -26,6 +26,7 @@ import {
 
 import { store } from "../data/store";
 import Logo from "../components/Logo";
+import AdminSoundAlerts from "../components/AdminSoundAlerts";
 
 const links = [
   {
@@ -121,6 +122,8 @@ export default function AdminLayout() {
       >
         <div className="p-5 border-b border-line flex items-center justify-between">
           <Logo />
+          
+        <AdminSoundAlerts />
 
           <button
             onClick={() => setOpen(false)}
