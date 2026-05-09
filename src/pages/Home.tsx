@@ -25,6 +25,7 @@ import LiveActivity from "../components/LiveActivity";
 import AnimatedCounter from "../components/AnimatedCounter";
 import AUMTicker from "../components/AUMTicker";
 import TrustBadges from "../components/TrustBadges";
+import LeadershipVideo from "../components/LeadershipVideo";
 import { useSeo } from "../utils/seo";
 
 const PLANS = CONFIG.plans as readonly Plan[];
@@ -305,6 +306,7 @@ export default function Home() {
       </section>
 
       <TrustBadges />
+     <LeadershipVideo />
 
       <section className="border-y border-line bg-bg-elev/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
