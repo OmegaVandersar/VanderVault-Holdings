@@ -15,6 +15,7 @@ import {
 
 import { CONFIG } from "../config";
 import { TEAM, REASONS } from "../data/team";
+import LeadershipVideo from "../components/LeadershipVideo";
 
 const Linkedin = Link2;
 
@@ -296,6 +297,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      <LeadershipVideo />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
