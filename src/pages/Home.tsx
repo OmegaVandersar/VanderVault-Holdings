@@ -539,9 +539,3 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-
-                <Link
-                  to="/register"
-                  className={`mt-6 block text-center py-2.5 rounded-md font-medium transition ${
-                    plan.featured
-                      ? "bg-g
