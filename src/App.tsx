@@ -1,51 +1,16 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Shield, Globe, TrendingUp, Lock, Menu, X, Zap, 
   PhoneCall, ArrowUpRight, PieChart, Activity, 
-  ChevronRight, BarChart3 
+  ChevronRight, BarChart3, CheckCircle2 
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  AreaChart, Area, CartesianGrid, Tooltip, ResponsiveContainer 
-} from 'recharts';
 
-// Utility for classes
-function cn(...classes: (string | boolean | undefined)[]) {
-  return classes.filter(Boolean).join(' ');
-}
+// UI Utility
+const cn = (...classes: any[]) => classes.filter(Boolean).join(' ');
 
-const chartData = Array.from({ length: 24 }, (_, i) => ({
-  name: i,
-  value: 42000 + Math.random() * 5000 + (i * 200),
-}));
-
-const PLANS = [
-  {
-    name: "Growth Strategy",
-    min: "$5,000",
-    return: "8-12% APY",
-    featured: false,
-    description: "Stable returns focused on large-cap digital assets and established indices."
-  },
-  {
-    name: "Institutional Alpha",
-    min: "$50,000",
-    return: "18-24% APY",
-    featured: true,
-    description: "Our flagship high-yield strategy utilizing proprietary algorithmic trading."
-  },
-  {
-    name: "Vault Private",
-    min: "$250,000",
-    return: "Custom",
-    featured: false,
-    description: "Bespoke asset management with dedicated advisors and physical vault custody."
-  }
-];
-
-const Navbar = () => {
+export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -53,123 +18,204 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
-      isScrolled ? "bg-white/90 backdrop-blur-md border-slate-200 py-3" : "bg-transparent border-transparent py-5"
-    )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="bg-slate-900 p-1.5 rounded-lg"><Shield className="w-6 h-6 text-white" /></div>
-          <span className="text-xl font-bold tracking-tight text-slate-900">Vander Vault <span className="text-slate-500 font-normal">Holdings</span></span>
-        </div>
-        <div className="hidden md:flex items-center gap-8">
-          {['Markets', 'Terminal', 'Security', 'About'].map(item => (
-            <a key={item} href="#" className="text-sm font-medium text-slate-600 hover:text-slate-900">{item}</a>
-          ))}
-          <button className="bg-slate-900 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-slate-800 transition-all active:scale-95">Access Terminal</button>
-        </div>
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-slate-600">{isOpen ? <X /> : <Menu />}</button>
-      </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="md:hidden bg-white border-t p-4 space-y-4 shadow-xl">
-            {['Markets', 'Terminal', 'Security', 'About'].map(item => <a key={item} href="#" className="block py-2 text-slate-600 font-medium">{item}</a>)}
-            <button className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold">Access Terminal</button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
-};
+  const PLANS = [
+    {
+      name: "Basic Alpha",
+      min: "€500",
+      daily: "2.5%",
+      period: "30 Days",
+      featured: false,
+      desc: "Entry-level HNW portfolio with daily liquidity and secured cold-storage."
+    },
+    {
+      name: "Institutional Pro",
+      min: "€5,000",
+      daily: "4.8%",
+      period: "60 Days",
+      featured: true,
+      desc: "Our flagship high-frequency trading model for rapid capital growth."
+    },
+    {
+      name: "Vault Private",
+      min: "€50,000",
+      daily: "Custom",
+      period: "Bespoke",
+      featured: false,
+      desc: "Bespoke management with physical vault custody and dedicated advisors."
+    }
+  ];
 
-export default function App() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-slate-900 selection:text-white">
-      <Navbar />
-      
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 text-white text-[10px] font-bold tracking-[0.2em] uppercase mb-8">
-              <Zap className="w-3 h-3 text-amber-400" /> Vander Vault Institutional
+    <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-emerald-500 selection:text-white">
+      {/* Navigation */}
+      <nav className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+        isScrolled ? "bg-black/80 backdrop-blur-md border-white/10 py-3 shadow-2xl" : "bg-transparent border-transparent py-5"
+      )}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="bg-emerald-500 p-1.5 rounded-lg shadow-lg shadow-emerald-500/20">
+              <Shield className="w-6 h-6 text-black" />
             </div>
-            <h1 className="text-6xl lg:text-8xl font-black text-slate-900 tracking-tighter mb-8 leading-[0.9]">
-              Global Capital. <br /><span className="text-slate-400">Perfectly Secured.</span>
-            </h1>
-            <p className="text-xl lg:text-2xl text-slate-500 mb-12 max-w-2xl mx-auto font-medium">
-              The premier digital asset terminal for institutional investors and high-net-worth family offices.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 shadow-2xl transition-all flex items-center justify-center gap-2">
-                Open Account <ChevronRight className="w-5 h-5" />
-              </button>
-              <button className="px-10 py-5 bg-white text-slate-900 border-2 border-slate-100 rounded-2xl font-bold hover:bg-slate-50 transition-all">Wealth Solutions</button>
-            </div>
-          </motion.div>
-          
-          {/* Terminal UI */}
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="mt-20 bg-slate-950 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl p-6 text-left">
-            <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-800">
-              <div className="flex gap-2"><div className="w-3 h-3 rounded-full bg-red-500/40"/><div className="w-3 h-3 rounded-full bg-amber-500/40"/><div className="w-3 h-3 rounded-full bg-emerald-500/40"/></div>
-              <div className="text-[10px] font-mono text-emerald-500 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"/> LIVE_NODE_STABLE</div>
-            </div>
-            <div className="grid lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2">
-                <div className="h-[300px] w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={chartData}>
-                      <defs><linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stopColor="#10b981" stopOpacity={0.2}/><stop offset="95%" stopColor="#10b981" stopOpacity={0}/></linearGradient></defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} opacity={0.1} />
-                      <Tooltip contentStyle={{ backgroundColor: '#0f172a', border: 'none', borderRadius: '12px', color: '#fff' }} />
-                      <Area type="monotone" dataKey="value" stroke="#10b981" fill="url(#colorValue)" strokeWidth={2} />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-              <div className="space-y-6">
-                <div className="bg-emerald-500/10 border border-emerald-500/20 p-6 rounded-2xl">
-                  <div className="text-xs font-bold text-emerald-400 mb-1 uppercase tracking-widest">Net Asset Value</div>
-                  <div className="text-3xl font-bold text-white font-mono">$2,412,841</div>
-                </div>
-                <div className="space-y-3 font-mono text-[11px] text-slate-500">
-                  <div className="flex justify-between border-b border-slate-900 py-2"><span>BTC/USD</span><span className="text-emerald-400">$94,231</span></div>
-                  <div className="flex justify-between border-b border-slate-900 py-2"><span>ETH/USD</span><span className="text-emerald-400">$2,841</span></div>
-                  <div className="flex justify-between border-b border-slate-900 py-2"><span>XAU/USD</span><span className="text-red-400">$2,142</span></div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Trust & Plans */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            {PLANS.map((plan, i) => (
-              <div key={i} className={cn("p-10 rounded-[2.5rem] border transition-all", plan.featured ? "bg-slate-900 text-white shadow-2xl scale-105" : "bg-white border-slate-200")}>
-                <h3 className="text-xl font-bold mb-4">{plan.name}</h3>
-                <div className="text-4xl font-black mb-6">{plan.return}</div>
-                <p className={cn("text-sm leading-relaxed mb-8", plan.featured ? "text-slate-400" : "text-slate-500")}>{plan.description}</p>
-                <button className={cn("w-full py-4 rounded-xl font-bold transition-all", plan.featured ? "bg-emerald-500 text-white hover:bg-emerald-400" : "bg-slate-900 text-white")}>Select Strategy</button>
-              </div>
-            ))}
+            <span className="text-xl font-black tracking-tighter uppercase italic">Vander Vault <span className="text-emerald-500 not-italic">Holdings</span></span>
           </div>
+          <div className="hidden md:flex items-center gap-10">
+            {['Markets', 'Terminal', 'Security', 'About'].map(item => (
+              <a key={item} href="#" className="text-[10px] font-black uppercase tracking-[0.2em] text-white/50 hover:text-emerald-400 transition-colors">{item}</a>
+            ))}
+            <button className="bg-emerald-500 text-black px-6 py-2 rounded-md text-[10px] font-black uppercase tracking-widest hover:bg-emerald-400 transition-all active:scale-95 shadow-lg shadow-emerald-500/20">Client Terminal</button>
+          </div>
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden p-2 text-white">{isMenuOpen ? <X /> : <Menu />}</button>
         </div>
-      </section>
+      </nav>
+
+      <main>
+        {/* Hero Section */}
+        <section className="relative pt-40 pb-32 overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.15),transparent_50%)]" />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div className="max-w-4xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-[10px] font-black tracking-[0.2em] uppercase mb-8">
+                <Zap className="w-3 h-3 fill-emerald-400" /> Institutional Grade v4.2
+              </div>
+              <h1 className="text-7xl lg:text-[100px] font-black tracking-tighter leading-[0.85] mb-10 uppercase italic">
+                Secure Wealth. <br /><span className="text-emerald-500">Accelerate Capital.</span>
+              </h1>
+              <p className="text-xl lg:text-2xl text-white/50 mb-12 max-w-2xl font-medium leading-relaxed">
+                The premier digital asset terminal for elite investors. <br/>High-performance portfolios starting from <span className="text-white font-bold">€500</span>.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-5">
+                <button className="px-10 py-5 bg-emerald-500 text-black rounded-xl font-black text-xs uppercase tracking-[0.2em] hover:bg-emerald-400 transition-all shadow-2xl shadow-emerald-500/20 flex items-center justify-center gap-3">
+                  Deploy Capital <ChevronRight className="w-5 h-5" />
+                </button>
+                <button className="px-10 py-5 bg-white/5 border border-white/10 text-white rounded-xl font-black text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all">Wealth Solutions</button>
+              </div>
+            </div>
+
+            {/* Simulated Live Terminal */}
+            <div className="mt-24 grid grid-cols-1 lg:grid-cols-4 gap-6">
+              <div className="lg:col-span-3 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                 <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/5">
+                   <div className="flex gap-2 font-mono text-[10px] text-white/40 uppercase tracking-widest"><Activity className="w-4 h-4 text-emerald-500"/> Node_Status: Optimal</div>
+                   <div className="text-[10px] font-mono text-emerald-500 flex items-center gap-2 font-bold uppercase tracking-widest animate-pulse">Live_Market_Stream</div>
+                 </div>
+                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    {[
+                      { l: 'BTC/EUR', p: '€91,241', c: '+2.4%' },
+                      { l: 'ETH/EUR', p: '€2,684', c: '+1.8%' },
+                      { l: 'GOLD/EUR', p: '€2,014', c: '-0.2%' },
+                      { l: 'AUM_TOTAL', p: '€42.8B', c: 'VERIFIED' },
+                    ].map(t => (
+                      <div key={t.l} className="space-y-1">
+                        <div className="text-[10px] font-black text-white/30 uppercase tracking-widest">{t.l}</div>
+                        <div className="text-xl font-bold font-mono">{t.p}</div>
+                        <div className={cn("text-[10px] font-bold", t.c.includes('+') ? "text-emerald-500" : "text-white/40")}>{t.c}</div>
+                      </div>
+                    ))}
+                 </div>
+              </div>
+              <div className="bg-emerald-500 p-8 rounded-3xl flex flex-col justify-between shadow-2xl shadow-emerald-500/20">
+                 <PieChart className="w-10 h-10 text-black" />
+                 <div>
+                   <div className="text-black/60 text-[10px] font-black uppercase tracking-widest mb-1">Growth Forecast</div>
+                   <div className="text-4xl font-black text-black">+24.8%</div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Investment Plans Section */}
+        <section className="py-32 bg-white/5 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-24">
+              <h2 className="text-5xl font-black mb-8 uppercase italic tracking-tighter">Strategic Portfolios</h2>
+              <p className="text-white/40 text-lg font-medium">Sophisticated high-yield strategies tailored for HNW capital deployment.</p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              {PLANS.map((plan, i) => (
+                <div key={i} className={cn(
+                  "p-10 rounded-[2.5rem] border transition-all duration-500 group relative overflow-hidden",
+                  plan.featured ? "bg-white text-black border-white shadow-2xl scale-105" : "bg-[#0a0a0a] border-white/5 hover:border-emerald-500/50"
+                )}>
+                  {plan.featured && <span className="absolute top-0 right-0 px-6 py-2 bg-emerald-500 text-black text-[10px] font-black uppercase tracking-widest rounded-bl-2xl">Elite Choice</span>}
+                  <h3 className="text-2xl font-black mb-2 uppercase italic">{plan.name}</h3>
+                  <div className="flex items-baseline gap-2 mb-8">
+                    <span className="text-5xl font-black tracking-tighter">{plan.daily}</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest opacity-40">Daily Return</span>
+                  </div>
+                  <div className="space-y-4 mb-12 pb-12 border-b border-current opacity-20">
+                    <div className="flex justify-between text-[10px] font-black uppercase tracking-widest">
+                      <span>Minimum Deposit</span>
+                      <span>{plan.min}</span>
+                    </div>
+                    <div className="flex justify-between text-[10px] font-black uppercase tracking-widest">
+                      <span>Investment Period</span>
+                      <span>{plan.period}</span>
+                    </div>
+                  </div>
+                  <p className="text-sm font-medium mb-10 leading-relaxed opacity-60">{plan.desc}</p>
+                  <button className={cn(
+                    "w-full py-5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all",
+                    plan.featured ? "bg-black text-white hover:bg-slate-800" : "bg-emerald-500 text-black hover:bg-emerald-400 shadow-xl shadow-emerald-500/20"
+                  )}>Open Portfolio</button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Security / Compliance */}
+        <section className="py-32">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-24 items-center">
+              <div>
+                <h2 className="text-5xl font-black mb-10 uppercase italic tracking-tighter">Fortress Custody.</h2>
+                <div className="space-y-10">
+                  {[
+                    { icon: <Lock className="w-8 h-8 text-emerald-500" />, title: "Quantum-Shielded Vaults", desc: "Your assets are secured in physically air-gapped, offline multi-sig vaults." },
+                    { icon: <Shield className="w-8 h-8 text-emerald-500" />, title: "€500M Global Insurance", desc: "Comprehensive policy coverage through Lloyd's of London for complete asset protection." },
+                    { icon: <Globe className="w-8 h-8 text-emerald-500" />, title: "EU Regulatory Oversight", desc: "Fully compliant with MiCA and European digital finance directives." }
+                  ].map((f, i) => (
+                    <div key={i} className="flex gap-8 group">
+                      <div className="shrink-0 w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center transition-all group-hover:border-emerald-500/50">{f.icon}</div>
+                      <div>
+                        <h4 className="text-xl font-bold mb-2 uppercase tracking-tight">{f.title}</h4>
+                        <p className="text-white/40 leading-relaxed text-sm font-medium">{f.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative">
+                 <div className="absolute inset-0 bg-emerald-500/20 blur-[100px] rounded-full" />
+                 <div className="relative bg-white/5 border border-white/10 p-16 rounded-[4rem] text-center">
+                    <BarChart3 className="w-24 h-24 text-emerald-500 mx-auto mb-8" />
+                    <div className="text-6xl font-black mb-2 tracking-tighter uppercase italic">99.99%</div>
+                    <div className="text-[10px] font-black text-white/40 uppercase tracking-[0.3em]">Execution SLA Guaranteed</div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
 
       {/* Footer */}
-      <footer className="py-20 border-t border-slate-100 bg-white">
+      <footer className="py-20 border-t border-white/5 bg-black/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center items-center gap-2 mb-8">
-            <div className="bg-slate-900 p-1.5 rounded-lg"><Shield className="w-5 h-5 text-white" /></div>
-            <span className="text-xl font-bold text-slate-900 tracking-tight">Vander Vault</span>
+          <div className="flex justify-center items-center gap-3 mb-10">
+            <div className="bg-emerald-500 p-2 rounded-xl shadow-lg shadow-emerald-500/20"><Shield className="w-6 h-6 text-black" /></div>
+            <span className="text-2xl font-black tracking-tighter uppercase italic">Vander Vault <span className="text-emerald-500 not-italic">Holdings</span></span>
           </div>
-          <p className="text-slate-400 text-xs font-black uppercase tracking-[0.25em]">© {new Date().getFullYear()} Vander Vault Holdings. Institutional Client Group.</p>
+          <div className="flex flex-wrap justify-center gap-10 mb-12 opacity-40">
+            {['AML Policy', 'KYC Compliance', 'Terms of Service', 'Privacy'].map(l => (
+              <a key={l} href="#" className="text-[10px] font-black uppercase tracking-widest hover:text-white">{l}</a>
+            ))}
+          </div>
+          <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.4em]">© {new Date().getFullYear()} Vander Vault Holdings. Institutional Client Group.</p>
         </div>
       </footer>
     </div>
   );
-}
+          }
