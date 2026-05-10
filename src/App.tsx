@@ -1,13 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-// If you have Login/Admin pages, the app will still find them 
-// because we are using the standard Route structure below.
+import Login from './pages/Login';
+import Register from './pages/Register';
+import About from './pages/About';
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      {/* This structure is compatible with your existing /login or /admin routes */}
+      <Route path="/about" element={<About />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="*" element={<Home />} />
     </Routes>
   );
 }
